@@ -32,8 +32,29 @@ function getRandomHexColor() {
 }
 
 bgRandom.addEventListener("click", function() {
-    let colorValue = color.textContent;
-        navigator.clipboard.writeText(colorValue);
+    let colorValue = color.innerText;
+  
+    // check if the Clipboard API is supported
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(colorValue)
+        .then(() => {
+          alert(colorValue + " " + "Copied to Clipboard");
+        })
+        .catch((error) => {
+          console.error("Failed to copy text: ", error);
+        });
+    } else {
+      // Clipboard API not available, try using a fallback method
+      try {
+        const inputElement = document.createElement("textarea");
+        inputElement.value = colorValue;
+        document.body.appendChild(inputElement);
+        inputElement.select();
+        document.execCommand("copy");
+        document.body.removeChild(inputElement);
         alert(colorValue + " " + "Copied to Clipboard");
-})
-
+      } catch (error) {
+        console.error("Fallback method failed: ", error);
+      }
+    }
+  });
