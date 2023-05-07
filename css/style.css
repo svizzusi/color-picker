@@ -48,14 +48,14 @@ nav h1 span:nth-child(2){
 }
 
 .container {
-    padding-top: 150px;
+    padding-top: 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.bg-random {
+.bg-text {
     padding: 20px;
     box-shadow: 0 0 20px lightgray;
     margin-bottom: 50px;
@@ -63,7 +63,7 @@ nav h1 span:nth-child(2){
     cursor: pointer;
 }
 
-.bg-random:hover {
+.bg-text:hover {
     background-color: lightgrey;
 }
 
@@ -79,6 +79,16 @@ nav h1 span:nth-child(2){
     background: #000;
     color: #ffffff;
 }
+
+#toast-notification {
+    width: fit-content;
+    color: green;
+    background: ghostwhite;
+    box-shadow: 0 0 8px lightgray;
+    padding: 10px;
+    visibility: hidden;
+}   
+
   /******************************************
   /* ADDITIONAL STYLES
   /*******************************************/
